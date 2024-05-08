@@ -9,6 +9,7 @@ import { ajax, AjaxError } from 'rxjs/ajax';
 export class MongoDb {
 
   postLeads(data: any): Observable<any> {
+    console.log( data );
     return ajax.post('https://royopackbackend-production.up.railway.app/leads/new', data).pipe(
 
       catchError((error: AjaxError) => {
