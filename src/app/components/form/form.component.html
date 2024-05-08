@@ -1,0 +1,6 @@
+<div>
+    <form-input *ngFor="let key of formKeys" [fieldName]="key" [field]="inputs.form[key]"></form-input>
+    <div *ngIf="this.inputs.errors.showError" class="error">{{ this.inputs.errors.message }}</div>
+    <form-checkbox></form-checkbox>
+    <form-submit-button></form-submit-button>
+</div>

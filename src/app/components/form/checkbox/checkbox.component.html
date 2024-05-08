@@ -1,0 +1,9 @@
+<fieldset>
+    <div (click)="handleChecked()" [ngClass]="{'isChecked': isChecked, 'isUnChecked': !isChecked}">
+        <svg *ngIf="isChecked" width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" fill="white" fill-opacity="0.01" style="mix-blend-mode:multiply"/>
+            <path d="M6.5 12L2 7.5L2.707 6.793L6.5 10.5855L13.293 3.793L14 4.5L6.5 12Z" fill="#252525"/>
+        </svg>
+    </div>
+    <p>I have read and accept <a href="/" target="_blank">the terms and conditions</a></p>
+</fieldset>

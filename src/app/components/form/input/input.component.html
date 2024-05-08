@@ -1,0 +1,7 @@
+<fieldset>
+    <label>{{ fieldName }}</label>
+    <input type="text" [placeholder]="field?.placeholder" (input)="handleInputChange( $event, fieldName)"
+    [value]="this.inputValue">
+    <div *ngIf="showError" class="error">{{ field?.error }}</div>
+</fieldset>
+
