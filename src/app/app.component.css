@@ -5,4 +5,8 @@ app-home{
     align-items: center;
 
     background-color: #f5f5f5;
+    -moz-box-shadow: 0px 11px 34px -3px rgba(37,37,37,0.59);
+    box-shadow: 0px 11px 34px -3px rgba(37,37,37,0.59);
+
+    border-radius: 12px;
 }
