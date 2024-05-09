@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { HermesService } from '../../services/hermes/hermes-service.component';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-end-component',
@@ -9,4 +12,13 @@ import { Component } from '@angular/core';
 })
 export class EndComponentComponent {
 
+  name?: string = 'Santiago Nasar'
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.name = params['key'];
+    });
+  }
+  
 }

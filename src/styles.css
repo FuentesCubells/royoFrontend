@@ -19,3 +19,10 @@ body {
 p {
     margin: 0px
 }
+
+app-root{
+    height: 100%;
+}
+app-end-component{
+    height: 100%;
+}

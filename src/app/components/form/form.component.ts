@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 
 import { HermesService } from '../../services/hermes/hermes-service.component';
 import { MongoDb } from '../../services/database/mysql-service/mongodb-service.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -50,7 +51,7 @@ export class FormComponent implements OnDestroy {
     }
   }
 
-  constructor(private hermesService: HermesService, private mongoService: MongoDb) {
+  constructor(private hermesService: HermesService, private mongoService: MongoDb, private router: Router) {
     this.hermesSub = this.hermesService.getSubscription().subscribe(data => {
       if (this.inputs.form.hasOwnProperty(data.id)) {
         this.inputs.form[data.id].value = data.data;
@@ -89,10 +90,10 @@ export class FormComponent implements OnDestroy {
     this.mongoService.postLeads( this.prepareRequest() ).subscribe(
       
       (response) => {
-        console.log('Respuesta del servidor:', response);
+        this.router.navigate(['/submited'], { queryParams: { key: this.inputs.form.nombre.value } });
       },
       (error) => {
-        console.error('Error al enviar los datos:', error);
+        
       }
     );
     
