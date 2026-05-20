@@ -1,27 +1,54 @@
-# FormPabloRoyo
+# RoyoPack — Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
+Frontend de la plataforma RoyoPack, desarrollado para **[APBOX](https://apbox.es)**, empresa especializada en soluciones de packaging industrial y e-commerce con más de 20 años de experiencia.
 
-## Development server
+Construido con **Angular 17** y desplegado en **Railway** usando Caddy como servidor web de producción.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Stack
 
-## Code scaffolding
+- **Angular 17** — standalone components, signals
+- **TypeScript** — strict mode
+- **Caddy** — servidor web en producción (menor uso de CPU/memoria que `ng serve`)
+- **Railway** — despliegue con nixpacks
+- **ESLint + EditorConfig**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Repo relacionado
 
-## Build
+Backend: [`royoPackBackend`](https://github.com/FuentesCubells/royoPackBackend) — Node.js / Express
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Desarrollo local
 
-## Running unit tests
+```bash
+npm install
+npm run dev
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Abre `http://localhost:4200`
 
-## Running end-to-end tests
+## Despliegue en Railway
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+El proyecto incluye `nixpacks.toml` y `Caddyfile` preconfigurados para Railway.
 
-## Further help
+```bash
+# Railway detecta nixpacks.toml automáticamente
+# El build genera el estático y Caddy lo sirve en producción
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### ¿Por qué Caddy en vez de `ng serve`?
+
+- Menor consumo de memoria y CPU en producción
+- Compresión gzip nativa
+- Configuración de SPA con `try_files` para el routing de Angular
+- Costes de hosting más bajos
+
+## Estructura
+
+```
+src/
+├── app/          # Módulos, componentes y servicios
+└── environments/ # Variables por entorno
+```
+
+## Cliente
+
+Desarrollado para [APBOX](https://apbox.es) — soluciones de packaging 360 para empresas industriales, comerciales y e-commerce.
